@@ -1,0 +1,96 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Sistema de Gestión de Paquetería</h1>
+    <p class="hero-subtitle">
+      Plataforma completa para la gestión de envíos, construida con arquitectura
+      hexagonal, microservicios y mensajería en tiempo real.
+    </p>
+
+    <div class="hero-actions">
+      <a routerLink="/cotizar" class="btn-primary">Cotizar un envío</a>
+      <a routerLink="/rastrear" class="btn-secondary">Rastrear mi paquete</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="about-portfolio">
+  <div class="about-container">
+    
+    <!-- Columna Izquierda: Información del Proyecto -->
+    <div class="project-info-card">
+      <div class="badge-tag">
+        <span class="pulse-dot"></span> Caso de Estudio / Sistema ERP
+      </div>
+      <h2>Sobre el Proyecto</h2>
+      
+      <p class="lead-text">
+        Este sistema simula la operación completa de una empresa de paquetería: 
+        desde la cotización de un envío hasta el seguimiento en tiempo real, gestionando provincias, oficinas y tarifas.
+      </p>
+      
+      <p class="description-text">
+        El flujo refleja la lógica de una paquetería real: los envíos no los crea el cliente final de forma aislada, sino que son registrados por personal autorizado en sucursales físicas. Por seguridad, estas funciones están protegidas bajo roles de <strong>Empleado</strong> o <strong>Administrador</strong>. 
+      </p>
+
+      <div class="project-cta">
+        <span class="cta-hint">💡 Prueba las credenciales de demo en el</span>
+        <a routerLink="/login" class="login-link">
+          Inicio de Sesión <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Stack Tecnológico (Estilo Bento Grid moderno) -->
+    <div class="tech-stack-container">
+      
+      <!-- Backend Card -->
+      <div class="tech-card backend-card">
+        <div class="tech-card-header">
+          <div class="icon-box backend-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <div>
+            <h3>Backend Architecture</h3>
+            <span class="card-subtitle">Microservicios & Alta Concurrencia</span>
+          </div>
+        </div>
+        <div class="badges">
+          <span class="badge">Java 21</span>
+          <span class="badge">Spring Boot</span>
+          <span class="badge">Spring Security</span>
+          <span class="badge">JWT</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">Hibernate / JPA</span>
+          <span class="badge">RabbitMQ</span>
+          <span class="badge">Arquitectura Hexagonal</span>
+          <span class="badge">Microservicios</span>
+          <span class="badge">Docker</span>
+        </div>
+      </div>
+
+      <!-- Frontend Card -->
+      <div class="tech-card frontend-card">
+        <div class="tech-card-header">
+          <div class="icon-box frontend-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h3>Frontend Interface</h3>
+            <span class="card-subtitle">SPA Moderna & Reactiva</span>
+          </div>
+        </div>
+        <div class="badges">
+          <span class="badge">Angular 17+</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">Signals</span>
+          <span class="badge">Standalone Comps</span>
+          <span class="badge">Responsive Design</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+

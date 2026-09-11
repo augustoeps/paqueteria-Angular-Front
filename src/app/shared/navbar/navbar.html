@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a routerLink="/">📦 Paquetería</a>
+  </div>
+
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="navbar-links" [class.open]="menuAbierto()">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuAbierto.set(false)">Inicio</a></li>
+    <li><a routerLink="/cotizar" routerLinkActive="active" (click)="menuAbierto.set(false)">Cotizar Envío</a></li>
+    <li><a routerLink="/rastrear" routerLinkActive="active" (click)="menuAbierto.set(false)">Rastrear Paquete</a></li>
+    <li><a routerLink="/oficinas" routerLinkActive="active" (click)="menuAbierto.set(false)">Oficinas</a></li>
+  </ul>
+
+  <div class="navbar-actions" [class.open]="menuAbierto()">
+    <a routerLink="/login" class="btn-login" (click)="menuAbierto.set(false)">Iniciar Sesión</a>
+  </div>
+</nav>
