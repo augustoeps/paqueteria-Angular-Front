@@ -1,1 +1,25 @@
-<p>rastrear works!</p>
+<div class="rastrear-container">
+  <h1>Rastrear Paquete</h1>
+
+  <div class="busqueda">
+    <input type="text" [(ngModel)]="codigoIngresado" placeholder="Ingresa tu código de seguimiento" />
+    <button type="button" (click)="findPackage(codigoIngresado())">Buscar</button>
+  </div>
+
+ @if (paquete(); as datosPaquete) {
+  <div class="info-paquete">
+    <p><strong>Remitente:</strong> {{ datosPaquete.remitente.nombre }}</p>
+    <p><strong>Destinatario:</strong> {{ datosPaquete.destinatario.nombre }}</p>
+    <p><strong>Dirección de envío:</strong>
+      {{ datosPaquete.destinatario.direccion.calle }}, {{ datosPaquete.destinatario.direccion.ciudad }}
+    </p>
+    <p><strong>Peso:</strong> {{ datosPaquete.peso }} kg</p>
+    <p><strong>Estado:</strong> {{ datosPaquete.estadoPaquete }}</p>
+  </div>
+
+  <div class="historial-lista">
+    @for (evento of historialEstado(); track evento.id) {
+      <app-historial-card [evento]="evento" />
+    }
+  </div>
+}

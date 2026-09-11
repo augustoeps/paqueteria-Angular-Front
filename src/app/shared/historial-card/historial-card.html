@@ -1,0 +1,17 @@
+<div class="historial-card" [class.activo]="esActivo">
+  <div class="historial-punto">
+    @switch (evento.estadoPaquete) {
+      @case ('CREADO') { 📦 }
+      @case ('EN_TRANSITO') { 🚚 }
+      @case ('EN_OFICINA_DESTINO') { 🏢 }
+      @case ('ENTREGADO') { ✨ }
+      @case ('CANCELADO') { ❌ }
+      @default { 📍 }
+    }
+  </div>
+
+  <div class="historial-contenido">
+    <p class="historial-estado">{{ evento.estadoPaquete }}</p>
+    <p class="historial-fecha">{{ evento.fecha | date:'yyyy-MM-dd HH:mm' }}</p>
+  </div>
+</div>

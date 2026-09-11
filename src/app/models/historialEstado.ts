@@ -7,3 +7,5 @@ export interface HistorialEstado {
   fecha: string;
   oficinaId: string;
 }
+
+

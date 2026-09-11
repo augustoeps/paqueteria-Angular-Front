@@ -1,0 +1,81 @@
+.rastrear-container {
+  max-width: 480px;
+  margin: 2.5rem auto;
+  padding: 1.75rem 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.rastrear-container h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.busqueda {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.busqueda input {
+  flex: 1;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.9rem;
+  color: #111827;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.busqueda input:focus {
+  outline: none;
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+.busqueda button {
+  padding: 0.55rem 1.25rem;
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.busqueda button:hover {
+  background-color: #1f2937;
+  transform: translateY(-1px);
+}
+
+.info-paquete {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.info-paquete p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #374151;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f9fafb;
+  margin: 0;
+}
+
+.info-paquete p:last-child {
+  border-bottom: none;
+}
+
+.info-paquete strong {
+  color: #6b7280;
+  font-weight: 500;
+}
