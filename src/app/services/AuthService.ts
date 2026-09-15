@@ -2,6 +2,13 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { LoginRequest, LoginResponse } from '../models/auth.model';
+import { jwtDecode } from 'jwt-decode';
+
+interface JwtPayload {
+  sub: string;
+  rol: string;
+  exp: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +40,18 @@ export class AuthService {
 
     logout(): void {
         localStorage.removeItem('token');
+    }
+
+    obtenerRol(): string | null {
+        const token = this.obtenerToken();
+        if (!token) return null;
+
+        const payload = jwtDecode<JwtPayload>(token);
+        return payload.rol;
+}
+
+    esAdmin(): boolean {
+        return this.obtenerRol() === 'ADMIN';
     }
 
 

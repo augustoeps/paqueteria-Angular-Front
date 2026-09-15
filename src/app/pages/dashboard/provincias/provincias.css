@@ -1,0 +1,145 @@
+.provincias-container {
+  max-width: 700px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.header-provincias {
+  margin-bottom: 1.5rem;
+}
+
+.header-provincias h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.aviso-permisos {
+  font-size: 0.85rem;
+  color: #92400e;
+  background-color: #fef3c7;
+  border: 1px solid #fde68a;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.crear-provincia {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.crear-provincia input {
+  flex: 1;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  transition: border-color 0.15s ease;
+}
+
+.crear-provincia input:focus {
+  outline: none;
+  border-color: #111827;
+}
+
+.crear-provincia input:disabled {
+  background-color: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.crear-provincia button {
+  padding: 0.55rem 1.25rem;
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.crear-provincia button:hover:not(:disabled) {
+  background-color: #1f2937;
+}
+
+.crear-provincia button:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.tabla-provincias {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-provincias thead {
+  background-color: #f9fafb;
+}
+
+.tabla-provincias th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tabla-provincias td {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: #111827;
+  border-top: 1px solid #f3f4f6;
+}
+
+.acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.acciones button {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #374151;
+  transition: background-color 0.15s ease;
+}
+
+.acciones button:hover:not(:disabled) {
+  background-color: #f9fafb;
+}
+
+.acciones button:disabled {
+  color: #d1d5db;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.btn-eliminar:not(:disabled) {
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.btn-eliminar:hover:not(:disabled) {
+  background-color: #fef2f2;
+}
+
+.sin-datos {
+  text-align: center;
+  color: #9ca3af;
+  padding: 1.5rem !important;
+}

@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Panel de Control</h1>
+    <button type="button" class="btn-logout" (click)="logout()">Cerrar Sesión</button>
+  </div>
+
+  <div class="dashboard-grid">
+    <a routerLink="/dashboard/paquetes/crear" class="dashboard-card">
+      <span class="dashboard-icon">📦</span>
+      <h3>Crear Envío</h3>
+      <p>Registrar un nuevo paquete en el sistema</p>
+    </a>
+
+    <a routerLink="/dashboard/provincias" class="dashboard-card">
+      <span class="dashboard-icon">🗺️</span>
+      <h3>Gestionar Provincias</h3>
+      <p>Administrar las provincias disponibles</p>
+    </a>
+
+    <a routerLink="/dashboard/oficinasdash" class="dashboard-card">
+      <span class="dashboard-icon">🏢</span>
+      <h3>Gestionar Oficinas</h3>
+      <p>Administrar oficinas y ubicaciones</p>
+    </a>
+
+    <a routerLink="/dashboard/tarifas" class="dashboard-card">
+      <span class="dashboard-icon">💰</span>
+      <h3>Tarifas</h3>
+      <p>Configurar precios entre provincias</p>
+    </a>
+
+    <a routerLink="/dashboard/metricas" class="dashboard-card">
+      <span class="dashboard-icon">📊</span>
+      <h3>Métricas</h3>
+      <p>Ver estadísticas del sistema</p>
+    </a>
+  </div>
+</div>

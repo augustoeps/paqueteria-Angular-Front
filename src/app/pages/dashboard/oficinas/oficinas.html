@@ -1,0 +1,61 @@
+<div class="oficinas-dashboard">
+  <div class="header-oficinas">
+    <h1>Gestionar Oficinas</h1>
+    @if (esAdmin()) {
+      <button type="button" class="btn-nueva" (click)="toggleFormulario()">
+        {{ mostrarFormulario() ? 'Cancelar' : '+ Nueva Oficina' }}
+      </button>
+    } @else {
+      <p class="aviso-permisos">⚠️ Solo los administradores pueden gestionar oficinas.</p>
+    }
+  </div>
+
+  @if (mostrarFormulario() && esAdmin()) {
+    <div class="formulario-oficina">
+      <div class="fila-form">
+        <input type="text" [(ngModel)]="codigo" placeholder="Código" />
+        <input type="text" [(ngModel)]="nombre" placeholder="Nombre" />
+      </div>
+      <div class="fila-form">
+        <input type="text" [(ngModel)]="calle" placeholder="Calle" />
+        <input type="text" [(ngModel)]="numero" placeholder="Número" />
+      </div>
+      <div class="fila-form">
+        <input type="text" [(ngModel)]="ciudad" placeholder="Ciudad" />
+        <input type="text" [(ngModel)]="codigoPostal" placeholder="Código Postal" />
+      </div>
+      <div class="fila-form">
+        <input type="number" [(ngModel)]="latitud" placeholder="Latitud" />
+        <input type="number" [(ngModel)]="longitud" placeholder="Longitud" />
+      </div>
+      <div class="fila-form">
+        <select [(ngModel)]="provinciaSeleccionada">
+          <option value="" disabled selected>Selecciona una provincia</option>
+          @for (provincia of provincias(); track provincia.id) {
+            <option [value]="provincia.id">{{ provincia.nombre }}</option>
+          }
+        </select>
+      </div>
+      <button type="button" class="btn-guardar" (click)="crearOficina()">Guardar Oficina</button>
+    </div>
+  }
+
+  <div class="oficinas-grid">
+    @for (oficina of oficinas(); track oficina.id) {
+      <div class="oficina-card">
+        <div class="oficina-card-header">
+          <span class="oficina-codigo">{{ oficina.codigo }}</span>
+          @if (esAdmin()) {
+            <button type="button" class="btn-eliminar-card" (click)="eliminarOficina(oficina.id)">✕</button>
+          }
+        </div>
+        <h3>{{ oficina.nombre }}</h3>
+        <p class="oficina-direccion">{{ oficina.calle }} {{ oficina.numero }}, {{ oficina.ciudad }}</p>
+        <p class="oficina-cp">CP: {{ oficina.codigoPostal }}</p>
+        <span class="oficina-provincia">{{ nombreProvincia(oficina.provinciaId) }}</span>
+      </div>
+    } @empty {
+      <p class="sin-datos">No hay oficinas registradas.</p>
+    }
+  </div>
+</div>

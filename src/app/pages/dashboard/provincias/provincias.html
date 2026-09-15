@@ -1,0 +1,53 @@
+<div class="provincias-container">
+  <div class="header-provincias">
+    <h1>Gestionar Provincias</h1>
+    @if (!esAdmin()) {
+      <p class="aviso-permisos">
+        ⚠️ Solo los administradores pueden crear, editar o eliminar provincias.
+      </p>
+    }
+  </div>
+
+  <div class="crear-provincia">
+    <input
+      type="text"
+      [(ngModel)]="nuevoNombre"
+      placeholder="Nombre de la provincia"
+      [disabled]="!esAdmin()"
+    />
+    <button type="button" (click)="crearProvincia(nuevoNombre())" [disabled]="!esAdmin()">
+      Crear
+    </button>
+  </div>
+
+  <table class="tabla-provincias">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (provincia of provincias(); track provincia.id) {
+  <tr>
+    <td>
+      @if (provinciaEditandoId() === provincia.id) {
+        <input type="text" [(ngModel)]="nombreEditado" />
+      } @else {
+        {{ provincia.nombre }}
+      }
+    </td>
+        <td class="acciones">
+        @if (provinciaEditandoId() === provincia.id) {
+            <button type="button" (click)="guardarEdicion(provincia.id)">Guardar</button>
+            <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+        } @else {
+            <button type="button" [disabled]="!esAdmin()" (click)="iniciarEdicion(provincia)">Editar</button>
+            <button type="button" class="btn-eliminar" [disabled]="!esAdmin()" (click)="eliminarProvincia(provincia.id)">Eliminar</button>
+        }
+        </td>
+  </tr>
+}
+    </tbody>
+  </table>
+</div>
