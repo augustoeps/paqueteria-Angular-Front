@@ -5,3 +5,16 @@ export interface CotizarEnvioRequest {
 }
 
 export type CotizarEnvioResponse = number;
+
+export interface TarifaResponse {
+  id: string;
+  provinciaOrigenId: string;
+  provinciaDestinoId: string;
+  precioPorKilogramo: number;
+}
+
+export interface CrearTarifaRequest{
+      provinciaOrigenId: string,
+      provinciaDestinoId:string,
+      precioPorKilogramo:number,
+    };

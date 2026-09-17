@@ -8,6 +8,9 @@ import { Provincias } from './pages/dashboard/provincias/provincias';
 import { Login } from './pages/login/login';
 import { authGuard } from './core/guards/auth-guard';
 import { GestionarOficinas } from './pages/dashboard/oficinas/oficinas';
+import { Tarifas } from './pages/dashboard/tarifas/tarifas';
+import { Metricas } from './pages/dashboard/metricas/metricas';
+import { CrearEnvio } from './pages/dashboard/crear-envio/crear-envio';
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'cotizar', component: Tarifa },
@@ -20,7 +23,10 @@ export const routes: Routes = [
   children: [
     { path: '', component: Dashboard },
     { path: 'provincias', component: Provincias },
-    { path: 'oficinasdash', component:    GestionarOficinas}
+    { path: 'oficinasdash', component:    GestionarOficinas},
+    { path : 'tarifadash', component: Tarifas},
+    {path : 'metricas', component: Metricas},
+    {path: "paquetes/crear", component: CrearEnvio}
   ]
 }
 ];

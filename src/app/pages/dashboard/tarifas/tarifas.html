@@ -1,0 +1,79 @@
+<div class="tarifas-dashboard">
+  <div class="header-tarifas">
+    <h1>Gestionar Tarifas</h1>
+    @if (!isAdmin()) {
+      <p class="aviso-permisos">⚠️ Solo los administradores pueden gestionar tarifas.</p>
+    }
+  </div>
+
+  <div class="formulario-tarifa">
+    <select [(ngModel)]="origenSeleccionado" [disabled]="!isAdmin()">
+      <option value="" disabled selected>Provincia Origen</option>
+      @for (provincia of provincias(); track provincia.id) {
+        <option [value]="provincia.id">{{ provincia.nombre }}</option>
+      }
+    </select>
+
+    <select [(ngModel)]="destinoSeleccionado" [disabled]="!isAdmin()">
+      <option value="" disabled selected>Provincia Destino</option>
+      @for (provincia of provincias(); track provincia.id) {
+        <option [value]="provincia.id">{{ provincia.nombre }}</option>
+      }
+    </select>
+
+    <input
+      type="number"
+      [(ngModel)]="precioIngresado"
+      placeholder="Precio por kg (€)"
+      [disabled]="!isAdmin()"
+      step="0.01"
+    />
+
+    <button
+      type="button"
+      [disabled]="!isAdmin()"
+      (click)="create(origenSeleccionado(), destinoSeleccionado(), precioIngresado()!)"
+    >
+      Guardar
+    </button>
+  </div>
+
+  <table class="tabla-tarifas">
+    <thead>
+      <tr>
+        <th>Origen</th>
+        <th>Destino</th>
+        <th>Precio / kg</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (tarifa of tarifas(); track tarifa.id) {
+        <tr>
+          <td>{{ nombreProvincia(tarifa.provinciaOrigenId) }}</td>
+          <td>{{ nombreProvincia(tarifa.provinciaDestinoId) }}</td>
+          <td>
+            @if (tarifaEditandoId() === tarifa.id) {
+              <input type="number" [(ngModel)]="precioEditado" step="0.01" class="input-edicion" />
+            } @else {
+              {{ tarifa.precioPorKilogramo }} €
+            }
+          </td>
+          <td class="acciones">
+            @if (tarifaEditandoId() === tarifa.id) {
+              <button type="button" class="btn-guardar" (click)="guardarEdicion(tarifa.id)">Guardar</button>
+              <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+            } @else {
+              <button type="button" [disabled]="!isAdmin()" (click)="iniciarEdicion(tarifa)">Editar</button>
+              <button type="button" class="btn-eliminar" [disabled]="!isAdmin()" (click)="eliminarTarifa(tarifa.id)">Eliminar</button>
+            }
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4" class="sin-datos">No hay tarifas registradas.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

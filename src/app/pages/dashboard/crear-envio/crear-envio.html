@@ -1,0 +1,62 @@
+<div class="crear-envio-container">
+  <h1>Crear Envío</h1>
+
+  @if (paqueteCreado()) {
+    <div class="exito">
+      <h2>✅ Paquete creado con éxito</h2>
+      <p>Código de seguimiento: <strong>{{ paqueteCreado() }}</strong></p>
+    </div>
+  } @else {
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <div class="seccion">
+      <h3>Datos del Envío</h3>
+      <div class="fila">
+        <input type="number" [(ngModel)]="peso" placeholder="Peso (kg)" step="0.1" />
+
+        <select [(ngModel)]="oficinaOrigenId">
+          <option value="" disabled selected>Oficina Origen</option>
+          @for (oficina of oficinas(); track oficina.id) {
+            <option [value]="oficina.id">{{ oficina.nombre }}</option>
+          }
+        </select>
+
+        <select [(ngModel)]="oficinaDestinoId">
+          <option value="" disabled selected>Oficina Destino</option>
+          @for (oficina of oficinas(); track oficina.id) {
+            <option [value]="oficina.id">{{ oficina.nombre }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="dos-columnas">
+      <div class="seccion">
+        <h3>Remitente</h3>
+        <input type="text" [ngModel]="remitente().nombre" (ngModelChange)="actualizarRemitente('nombre', $event)" placeholder="Nombre" />
+        <input type="text" [ngModel]="remitente().telefono" (ngModelChange)="actualizarRemitente('telefono', $event)" placeholder="Teléfono" />
+        <input type="email" [ngModel]="remitente().email" (ngModelChange)="actualizarRemitente('email', $event)" placeholder="Email" />
+        <input type="text" [ngModel]="remitente().direccion.calle" (ngModelChange)="actualizarDireccionRemitente('calle', $event)" placeholder="Calle" />
+        <input type="text" [ngModel]="remitente().direccion.ciudad" (ngModelChange)="actualizarDireccionRemitente('ciudad', $event)" placeholder="Ciudad" />
+        <input type="text" [ngModel]="remitente().direccion.provincia" (ngModelChange)="actualizarDireccionRemitente('provincia', $event)" placeholder="Provincia" />
+        <input type="text" [ngModel]="remitente().direccion.codigoPostal" (ngModelChange)="actualizarDireccionRemitente('codigoPostal', $event)" placeholder="Código Postal" />
+      </div>
+
+      <div class="seccion">
+        <h3>Destinatario</h3>
+        <input type="text" [ngModel]="destinatario().nombre" (ngModelChange)="actualizarDestinatario('nombre', $event)" placeholder="Nombre" />
+        <input type="text" [ngModel]="destinatario().telefono" (ngModelChange)="actualizarDestinatario('telefono', $event)" placeholder="Teléfono" />
+        <input type="email" [ngModel]="destinatario().email" (ngModelChange)="actualizarDestinatario('email', $event)" placeholder="Email" />
+        <input type="text" [ngModel]="destinatario().direccion.calle" (ngModelChange)="actualizarDireccionDestinatario('calle', $event)" placeholder="Calle" />
+        <input type="text" [ngModel]="destinatario().direccion.ciudad" (ngModelChange)="actualizarDireccionDestinatario('ciudad', $event)" placeholder="Ciudad" />
+        <input type="text" [ngModel]="destinatario().direccion.provincia" (ngModelChange)="actualizarDireccionDestinatario('provincia', $event)" placeholder="Provincia" />
+        <input type="text" [ngModel]="destinatario().direccion.codigoPostal" (ngModelChange)="actualizarDireccionDestinatario('codigoPostal', $event)" placeholder="Código Postal" />
+      </div>
+    </div>
+
+    <button type="button" class="btn-crear" (click)="crear()">Crear Envío</button>
+  }
+</div>

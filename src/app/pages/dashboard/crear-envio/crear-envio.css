@@ -1,0 +1,114 @@
+.crear-envio-container {
+  max-width: 760px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.crear-envio-container h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.exito {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.exito h2 {
+  color: #166534;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.exito p {
+  color: #15803d;
+  font-size: 1rem;
+}
+
+.seccion {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.seccion h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 1rem 0;
+}
+
+.seccion input,
+.seccion select {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 0.65rem;
+  box-sizing: border-box;
+}
+
+.seccion input:focus,
+.seccion select:focus {
+  outline: none;
+  border-color: #111827;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.fila input,
+.fila select {
+  margin-bottom: 0;
+}
+
+.dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.btn-crear {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-crear:hover {
+  background-color: #1f2937;
+}
+
+@media (max-width: 700px) {
+  .dos-columnas,
+  .fila {
+    grid-template-columns: 1fr;
+  }
+}

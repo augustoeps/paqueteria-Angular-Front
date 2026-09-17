@@ -1,0 +1,52 @@
+<div class="metricas-container">
+
+  <div class="microservicio-badge">
+    <span class="pulse-dot"></span>
+    <div>
+      <strong>Datos servidos por un microservicio independiente</strong>
+      <p>Spring Boot · PostgreSQL propio · Puerto 8081 · Comunicación asíncrona vía RabbitMQ</p>
+    </div>
+  </div>
+
+  <h1>Métricas del Sistema</h1>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <span class="kpi-label">Ingresos Totales</span>
+      <span class="kpi-valor">{{ ingresosTotales() | number:'1.2-2' }} €</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Eventos Registrados</span>
+      <span class="kpi-valor">{{ totalEventos() }}</span>
+    </div>
+  </div>
+
+  <div class="graficos-grid">
+    <div class="grafico-card">
+      <h3>Paquetes por Estado</h3>
+      <canvas baseChart
+        [data]="chartTipoData()"
+        [type]="'doughnut'"
+        [options]="chartTipoOptions">
+      </canvas>
+    </div>
+
+    <div class="grafico-card">
+      <h3>Paquetes por Provincia de Origen</h3>
+      <canvas baseChart
+        [data]="chartProvinciaData()"
+        [type]="'bar'"
+        [options]="chartBarOptions">
+      </canvas>
+    </div>
+
+    <div class="grafico-card">
+      <h3>Paquetes por Oficina</h3>
+      <canvas baseChart
+        [data]="chartOficinaData()"
+        [type]="'bar'"
+        [options]="chartBarOptions">
+      </canvas>
+    </div>
+  </div>
+</div>

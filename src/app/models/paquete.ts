@@ -22,3 +22,16 @@ export interface Paquete {
   remitente: DatosContacto;
   destinatario: DatosContacto;
 }
+
+export interface PaqueteCompleto {
+  id: string;
+  codigoSeguimiento: string;
+  peso: number;
+  estadoPaquete: EstadoPaquete;
+  oficinaOrigenId: string;
+  oficinaDestinoId: string;
+  remitente: DatosContacto;
+  destinatario: DatosContacto;
+  tarifaAplicada: number;
+  fechaCreacion: string;
+}
